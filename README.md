@@ -1,10 +1,5 @@
 # 🌍 Article & Sensor Analytics Platform
 
-**Live Demo:** [https://thesis-grafana.onrender.com](https://thesis-grafana.onrender.com/d/beiwnihkw7400b/dynamic-sensor-and-article-data-dashboard)  
-Feel free to play around with the filters! The pipelines are not currently running and the articles are in Greek.
-
----
-
 ## 🧠 Overview
 
 This project bridges **environmental sensor analytics** and **AI-driven news enrichment** for the city of Patras, Greece.
