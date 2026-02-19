@@ -1,6 +1,6 @@
-# 🌍 Article & Sensor Analytics Platform
+# Alternative Data ETL Pipeline
 
-## 🧠 Overview
+## Overview
 
 This project bridges **environmental sensor analytics** and **AI-driven news enrichment** for the city of Patras, Greece.
 It was developed as part of a Computer Science thesis to study how **local events** influence **air quality**.
@@ -8,18 +8,18 @@ The system uses pipelines, enriches, and visualizes data in a full-stack archite
 
 ---
 
-## 🚀 Features
+## Features
 
-- 📰 **Article Enrichment:** Scrapes and classifies local news using LLMs (via LM Studio)
-- 📍 **Geospatial Mapping:** Geocodes article locations and links them to nearby air sensors
-- 🌫️ **Environmental Data:** Automates daily PurpleAir data ingestion with Selenium
-- 🧩 **MongoDB Integration:** Centralized data storage for analytics and dashboards
-- 📊 **Grafana API Integration:** Provides REST endpoints for real-time visualization
-- ⚙️ **Docker + Render Deployment:** Fully containerized and live-hosted system
+- **Article Enrichment:** Scrapes and classifies local news using LLMs (via LM Studio)
+- **Geospatial Mapping:** Geocodes article locations and links them to nearby air sensors
+- **Environmental Data:** Automates daily PurpleAir data ingestion with Selenium
+- **MongoDB Integration:** Centralized data storage for analytics and dashboards
+- **Grafana API Integration:** Provides REST endpoints for real-time visualization
+- **Docker + Render Deployment:** Fully containerized and live-hosted system
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 | Folder / File | Description |
 |----------------|-------------|
@@ -36,7 +36,7 @@ The system uses pipelines, enriches, and visualizes data in a full-stack archite
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -67,7 +67,7 @@ Update with your credentials:
 
 ---
 
-## 🔗 API Endpoints
+## REST API Endpoints
 
 | Endpoint | Description |
 |-----------|-------------|
@@ -80,13 +80,13 @@ Update with your credentials:
 
 ---
 
-## 📊 Grafana Integration
+## Live Visualization
 
-The Flask API powers a dynamic Grafana dashboard containing:
-- Time-series line charts of PM2.5 data  
-- Tag frequency pie charts  
-- Interactive article tables with live URLs  
-- Area-based aggregations for multiple sensors
+The Flask backend powers a dynamic Grafana dashboard featuring:
+- Correlated time-series line charts of PM2.5 anomalies.
+- Tag frequency distributions.
+- Interactive datasets with live origin URLs.
+- Geospatial aggregations across multiple sensor nodes.
 
 To access the live dashboard:  
 👉 [https://thesis-grafana.onrender.com](https://thesis-grafana.onrender.com)  
@@ -94,7 +94,7 @@ Then open **Dynamic Sensor and Article Data Dashboard** under *Dashboards*.
 
 ---
 
-## 🧠 Technologies Used
+## Technologies Used
 
 | Layer | Stack |
 |-------|--------|
@@ -107,7 +107,18 @@ Then open **Dynamic Sensor and Article Data Dashboard** under *Dashboards*.
 
 ---
 
-## 📜 License
+## Future Improvements
+To scale this architecture for high-frequency or enterprise environments, future iterations would include:
+
+- **Asynchronous I/O:** Migrating the synchronous requests scraping pipeline to aiohttp and asyncio for significantly faster data ingestion.
+
+- **Message Brokering:** Introducing Apache Kafka or RabbitMQ to transition from batch-based cron jobs to real-time event streaming.
+
+- **Vector Database Integration:** Migrating from standard text matching to storing article embeddings in a Vector DB (like Pinecone or Milvus) for semantic similarity search.
+
+---
+
+## License
 
 This project is licensed under the **MIT License**.
 
