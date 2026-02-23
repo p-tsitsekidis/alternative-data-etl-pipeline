@@ -71,4 +71,4 @@ The Flask backend powers a dynamic Grafana dashboard featuring:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
