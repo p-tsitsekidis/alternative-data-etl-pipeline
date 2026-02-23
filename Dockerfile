@@ -13,8 +13,10 @@ WORKDIR /app
 COPY flask_api.py .
 COPY requirements-api.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir --break-system-packages -r requirements-api.txt
+# Create a virtual environment and install packages inside it. 
+# This bypasses all global root vs. user permission quirks.
+RUN python3 -m venv /app/venv
+RUN /app/venv/bin/pip install --no-cache-dir -r requirements-api.txt
 
 # Copy the start script
 COPY start.sh /start.sh
@@ -27,8 +29,8 @@ ENV GF_INSTALL_PLUGINS="yesoreyeram-infinity-datasource"
 COPY provisioning /etc/grafana/provisioning
 COPY dashboards /var/lib/grafana/dashboards
 
-# Make sure grafana user can access the app
-RUN chown -R grafana:root /app
+# Give the grafana user total ownership of the app and its virtual environment
+RUN chown -R grafana:root /app /start.sh
 
 # Switch back to grafana user
 USER grafana
