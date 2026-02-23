@@ -61,7 +61,7 @@ The Flask backend powers a dynamic Grafana dashboard featuring:
 * Tag frequency distributions (Pie Charts).
 * Geospatial aggregations across multiple sensor nodes (South, Center, North areas).
 
-👉 **[Access the Live Dashboard Here](https://thesis-grafana.onrender.com)** *(Navigate to **Dynamic Sensor and Article Data Dashboard** under Dashboards)*
+👉 **[Access the Live Dashboard Here](https://alt-data-dashboard.onrender.com)** *(Navigate to **Dynamic Sensor and Article Data Dashboard** under Dashboards)*
 
 ## Future Roadmap
 
