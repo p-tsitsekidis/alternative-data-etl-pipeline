@@ -37,4 +37,4 @@ USER grafana
 
 EXPOSE 3000
 
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
