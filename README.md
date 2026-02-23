@@ -4,6 +4,9 @@ An end-to-end data engineering pipeline and REST API that correlates **NLP-enric
 
 The system ingests unstructured Greek news articles, runs them through a multi-stage local LLM classification pipeline, geocodes extracted locations, matches them to the nearest air quality sensor via geospatial proximity, and serves the correlated data through a Flask API powering a live Grafana dashboard.
 
+https://github.com/user-attachments/assets/1a831a4a-3335-4b9b-ab96-ed3ab30892cc
+👉 **[Access the Live Dashboard Here](https://alt-data-dashboard.onrender.com)** *(Navigate to **Dynamic Sensor and Article Data Dashboard** under Dashboards)
+
 ## Technical Highlights & Architecture
 
 ### 1. Data Engineering & Automation
@@ -60,8 +63,6 @@ The Flask backend powers a dynamic Grafana dashboard featuring:
 * Correlated time-series bar charts of PM2.5 readings overlaid with news event markers.
 * Tag frequency distributions (Pie Charts).
 * Geospatial aggregations across multiple sensor nodes (South, Center, North areas).
-
-👉 **[Access the Live Dashboard Here](https://alt-data-dashboard.onrender.com)** *(Navigate to **Dynamic Sensor and Article Data Dashboard** under Dashboards)*
 
 ## Future Roadmap
 
