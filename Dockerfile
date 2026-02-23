@@ -1,12 +1,12 @@
 FROM grafana/grafana:latest
 
-# Switch to root to install dependencies
+# Switch to root for installing dependencies
 USER root
 
 # Install Python and pip
-RUN apk add --no-cache python3 py3-pip supervisor
+RUN apk add --no-cache python3 py3-pip
 
-# Create app directory for Flask
+# Create app directory
 WORKDIR /app
 
 # Copy Flask API files
@@ -16,19 +16,23 @@ COPY requirements-api.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir --break-system-packages -r requirements-api.txt
 
-# Install Grafana plugin
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Install Grafana plugins
 ENV GF_INSTALL_PLUGINS="yesoreyeram-infinity-datasource"
 
 # Copy Grafana provisioning and dashboards
 COPY provisioning /etc/grafana/provisioning
 COPY dashboards /var/lib/grafana/dashboards
 
-# Copy supervisor config to manage both processes
-COPY supervisord.conf /etc/supervisord.conf
+# Make sure grafana user can access the app
+RUN chown -R grafana:root /app
 
-# Expose only the Grafana port (Render expects one port)
-# Flask runs internally on 8000, Grafana proxies or both are accessible
+# Switch back to grafana user
+USER grafana
+
 EXPOSE 3000
 
-# Use supervisor to run both Grafana and Flask
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["/start.sh"]
