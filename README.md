@@ -6,7 +6,7 @@ The system ingests unstructured Greek news articles, runs them through a multi-s
 
 https://github.com/user-attachments/assets/1a831a4a-3335-4b9b-ab96-ed3ab30892cc
 
-👉 **[Access the Live Dashboard Here](https://alt-data-dashboard.onrender.com)** *(Navigate to **Dynamic Sensor and Article Data Dashboard** under Dashboards)
+👉 **[Access the Live Dashboard Here]([https://alt-data-dashboard.onrender.com](https://alt-data-dashboard.onrender.com/d/beiwnihkw7400b/dynamic-sensor-and-article-data-dashboard?orgId=1&from=2023-12-30T22:00:00.000Z&to=2025-10-09T00:00:00.000Z&timezone=browser&var-sensor=Trion%20Navarchon&var-primary_tag=%CE%94%CE%B7%CE%BC%CF%8C%CF%83%CE%B9%CE%B1%20%CE%93%CE%B5%CE%B3%CE%BF%CE%BD%CF%8C%CF%84%CE%B1&var-area=$__all&var-secondary_tag=$__all))**
 
 ## Technical Highlights & Architecture
 
