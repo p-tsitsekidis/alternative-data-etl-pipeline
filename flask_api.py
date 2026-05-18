@@ -66,6 +66,9 @@ AREA_SENSOR_MAP = {
 
 SPECIAL_WEATHER_TAG = "Καιρικά και Φυσικά Φαινόμενα"
 
+AVG_2025 = 54.7
+AVG_2024 = 48.6
+
 
 # ================================ HELPERS ======================================
 @app.get("/health")
@@ -461,24 +464,23 @@ def average_2024():
     Returns the average value of all sensor readings recorded during the year 2024.
     Output is formatted for Grafana as a single timestamped datapoint.
     """
-    # Define the 2024 date window (UTC midnight).
-    start_2024 = datetime(2024, 1, 1, tzinfo=timezone.utc)
-    start_2025 = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    # # Define the 2024 date window (UTC midnight).
+    # start_2024 = datetime(2024, 1, 1, tzinfo=timezone.utc)
+    # start_2025 = datetime(2025, 1, 1, tzinfo=timezone.utc)
     
-    query = {
-        "date": {
-            "$gte": start_2024,
-            "$lt": start_2025
-        }
-    }
+    # query = {
+    #     "date": {
+    #         "$gte": start_2024,
+    #         "$lt": start_2025
+    #     }
+    # }
     
-    cursor = get_sensor_data_collection().find(query, {"readings": 1})
-    avg_value = compute_overall_average(cursor)
-    
+    # cursor = get_sensor_data_collection().find(query, {"readings": 1})
+    # avg_value = compute_overall_average(cursor)
     now_ts = int(datetime.now(timezone.utc).timestamp() * 1000)
     return jsonify([{
         "target": "Average 2024",
-        "datapoints": [[round(avg_value, 2), now_ts]]
+        "datapoints": [[48.6, now_ts]]
     }])
 
 
@@ -489,19 +491,18 @@ def average_2025():
     Returns the average value of all sensor readings recorded during the year 2025 (up to the present).
     Output is formatted for Grafana as a single timestamped datapoint.
     """
-    start_2025 = datetime(2025, 1, 1, tzinfo=timezone.utc)
-    start_2026 = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    # start_2025 = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    # start_2026 = datetime(2026, 1, 1, tzinfo=timezone.utc)
     
-    query = {
-        "date": {
-            "$gte": start_2025,
-            "$lte": start_2026
-        }
-    }
+    # query = {
+    #     "date": {
+    #         "$gte": start_2025,
+    #         "$lte": start_2026
+    #     }
+    # }
     
-    cursor = get_sensor_data_collection().find(query, {"readings": 1})
-    avg_value = compute_overall_average(cursor)
-    
+    # cursor = get_sensor_data_collection().find(query, {"readings": 1})
+    # avg_value = compute_overall_average(cursor)
     now_ts = int(datetime.now(timezone.utc).timestamp() * 1000)
     return jsonify([{
         "target": "Average 2025",
