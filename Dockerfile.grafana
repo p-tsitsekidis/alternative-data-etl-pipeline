@@ -9,7 +9,7 @@ ENV GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES=false
 ENV GF_LIVE_MAX_CONNECTIONS=0
 ENV GF_LOG_LEVEL=warn
 
-COPY provisioning /etc/grafana/provisioning
-COPY dashboards /var/lib/grafana/dashboards
+COPY --chown=grafana:root provisioning /etc/grafana/provisioning
+COPY --chown=grafana:root dashboards /var/lib/grafana/dashboards
 
 EXPOSE 3000
