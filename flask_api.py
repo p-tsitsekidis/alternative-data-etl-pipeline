@@ -34,21 +34,14 @@ DATABASE_NAME = os.environ.get("DATABASE_NAME", "article_database")
 ARTICLE_COLLECTION = os.environ.get("ARTICLE_COLLECTION", "articles")
 SENSOR_DATA_COLLECTION = os.environ.get("SENSOR_DATA_COLLECTION", "sensor_readings")
 
-def get_mongo_client():
-    client = MongoClient(MONGO_URI)
-    return client
-
-def get_database():
-    client = get_mongo_client()
-    return client[DATABASE_NAME]
+_client = MongoClient(MONGO_URI, maxPoolSize=5)
+_db = _client[DATABASE_NAME]
 
 def get_article_collection():
-    database = get_database()
-    return database[ARTICLE_COLLECTION]
+    return _db[ARTICLE_COLLECTION]
 
 def get_sensor_data_collection():
-    database = get_database()
-    return database[SENSOR_DATA_COLLECTION]
+    return _db[SENSOR_DATA_COLLECTION]
 
 # Area to sensor_id map
 AREA_SENSOR_MAP = {
