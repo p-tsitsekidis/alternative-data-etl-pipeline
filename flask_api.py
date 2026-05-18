@@ -110,20 +110,20 @@ def parse_list(s):
         cleaned.append(p)
     return cleaned
 
-def compute_overall_average(cursor):
-    """
-    Computes the average of all numeric 'values' fields across documents in a MongoDB cursor.
-    Ignores NaNs and empty value lists.
-    """
-    total = 0.0
-    count = 0
-    for doc in cursor:
-        vals = list((doc.get("readings") or {}).values())
-        for v in vals:
-            if isinstance(v, (int, float)) and not math.isnan(v):
-                total += v
-                count += 1
-    return total / count if count > 0 else 0.0
+# def compute_overall_average(cursor):
+#     """
+#     Computes the average of all numeric 'values' fields across documents in a MongoDB cursor.
+#     Ignores NaNs and empty value lists.
+#     """
+#     total = 0.0
+#     count = 0
+#     for doc in cursor:
+#         vals = list((doc.get("readings") or {}).values())
+#         for v in vals:
+#             if isinstance(v, (int, float)) and not math.isnan(v):
+#                 total += v
+#                 count += 1
+#     return total / count if count > 0 else 0.0
 
 def _find_articles(sensor_ids: list[str] | None,
                 primary_tags: list[str],
