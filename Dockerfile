@@ -25,7 +25,6 @@ RUN chmod +x /start.sh
 # Install Grafana plugins
 ENV GF_INSTALL_PLUGINS="yesoreyeram-infinity-datasource"
 
-ENV GF_PLUGINS_PREINSTALL_DISABLED=true
 ENV GF_UNIFIED_ALERTING_ENABLED=false
 ENV GF_ALERTING_ENABLED=false
 ENV GF_ANALYTICS_REPORTING_ENABLED=false
