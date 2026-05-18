@@ -5,9 +5,9 @@ datasources:
     name: Thesis API
     type: yesoreyeram-infinity-datasource
     access: proxy
-    url: http://127.0.0.1:8000
+    url: ${API_URL}
     isDefault: true
     jsonData:
       authentication: none
       allowedHosts:
-        - http://127.0.0.1:8000
+        - ${API_URL}
