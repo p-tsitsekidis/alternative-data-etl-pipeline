@@ -1,0 +1,15 @@
+FROM grafana/grafana:latest
+
+ENV GF_INSTALL_PLUGINS="yesoreyeram-infinity-datasource"
+ENV GF_UNIFIED_ALERTING_ENABLED=false
+ENV GF_ALERTING_ENABLED=false
+ENV GF_ANALYTICS_REPORTING_ENABLED=false
+ENV GF_ANALYTICS_CHECK_FOR_UPDATES=false
+ENV GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES=false
+ENV GF_LIVE_MAX_CONNECTIONS=0
+ENV GF_LOG_LEVEL=warn
+
+COPY provisioning /etc/grafana/provisioning
+COPY dashboards /var/lib/grafana/dashboards
+
+EXPOSE 3000
