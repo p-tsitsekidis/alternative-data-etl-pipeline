@@ -480,7 +480,7 @@ def average_2024():
     now_ts = int(datetime.now(timezone.utc).timestamp() * 1000)
     return jsonify([{
         "target": "Average 2024",
-        "datapoints": [[48.6, now_ts]]
+        "datapoints": [[AVG_2024, now_ts]]
     }])
 
 
@@ -506,7 +506,7 @@ def average_2025():
     now_ts = int(datetime.now(timezone.utc).timestamp() * 1000)
     return jsonify([{
         "target": "Average 2025",
-        "datapoints": [[round(avg_value, 2), now_ts]]
+        "datapoints": [[AVG_2025, now_ts]]
     }])
 
 
